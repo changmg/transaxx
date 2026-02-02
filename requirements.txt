@@ -1,8 +1,20 @@
-pygad==3.2.0 # optional lib for genetic optimization
-matplotlib==3.8.0
-numpy==1.24.3
+# pygad==3.2.0 # optional lib for genetic optimization
+# matplotlib==3.8.0
+# numpy==1.24.3
+# timm==0.9.7
+# ninja==1.11.1.1
+# cython==3.0.7
+# jupyter
+
+numpy==2.3.1
+scipy==1.17.0
+Pillow==11.3.0
+setuptools==80.9.0
+tabulate==0.9.0
+torch==2.3.0
+torchvision==0.18.0
+tqdm==4.66.4
+tensorboard==2.19.0
+tensorboard_data_server==0.7.0
 timm==0.9.7
 ninja==1.11.1.1
-cython==3.0.7
-jupyter
-

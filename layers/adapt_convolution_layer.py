@@ -34,12 +34,15 @@ from .layer_utils import _pair
 
 ##### JIT compilation definitions #####
 from torch.utils.cpp_extension import load
-compute_arch = 'compute_70'
-base_dir = os.environ.get('PYTHONPATH').split(os.pathsep)[-1]
+# compute_arch = 'compute_70'
+compute_arch = 'compute_80'
+# base_dir = os.environ.get('PYTHONPATH').split(os.pathsep)[-1]
+base_dir = os.getcwd()
 prefix = base_dir + '/ext_modules/src/nn/cpp'
 prefix_cuda = base_dir + '/ext_modules/src/nn/cuda'
 include_dir = base_dir + '/ext_modules/include'
 source_basename = 'adapt_convolution_layer'
+# print("base_dir: ", base_dir, "prefix: ", prefix, "prefix_cuda: ", prefix_cuda, "include_dir: ", include_dir, "source_basename: ", source_basename)
 ###################################################
 
 class AdaptConv2DFunction(torch.autograd.Function):
