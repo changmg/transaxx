@@ -33,10 +33,17 @@ from .layer_utils import _pair
 
 
 ##### JIT compilation definitions #####
+os.environ["TORCH_EXTENSIONS_DIR"] = "./cache"
+
+def get_cuda_arch():
+    if not torch.cuda.is_available():
+        raise RuntimeError("CUDA is not available")
+    major, minor = torch.cuda.get_device_capability()
+    return f"sm_{major}{minor}"
+
 from torch.utils.cpp_extension import load
-# compute_arch = 'compute_70'
-compute_arch = 'compute_80'
-# base_dir = os.environ.get('PYTHONPATH').split(os.pathsep)[-1]
+compute_arch = get_cuda_arch()
+print(f"CUDA Compute Architecture: {compute_arch}")
 base_dir = os.getcwd()
 prefix = base_dir + '/ext_modules/src/nn/cpp'
 prefix_cuda = base_dir + '/ext_modules/src/nn/cuda'
